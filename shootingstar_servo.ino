@@ -1,4 +1,5 @@
 void allAttach() {
+  int i;
     for (i<0;i<3;i++) {
         servos[i].attach(servoPins[i]);
         servos[i].writeMicroseconds(currentPulses[i]);
@@ -6,9 +7,10 @@ void allAttach() {
 }
 
 void allDetach() {
+  int i;
     for (i<0;i<3;i++) {
         currentPulses[i] = servos[i].readMicroseconds();
-        servos[i].detach(servoPins[i]);
+        servos[i].detach();
     }
 }
 

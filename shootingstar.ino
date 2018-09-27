@@ -22,10 +22,10 @@ int currentPulses[3];
 int streamDelay = 200;
 int shootBrightness = 0;
 int powerBrightness = 1;
-int servoPins[] = {SERVO_PIN0, SERVO_PIN1, SERVO_pin2};
+int servoPins[] = {SERVO_PIN0, SERVO_PIN1, SERVO_PIN2};
 
 int getInterval() {
-    return 10000;
+    return 2000;
 }
 
 void setup() {
@@ -46,9 +46,10 @@ void loop() {
     int i;
     int angle[3];
     for(i=0;i<3;i++) angle[i] = random(10,171);
-    moveServo2(angle[0], angle[1], angle[2], SERVO_SPEED);
+    moveServos(angle[0], angle[1], angle[2], SERVO_SPEED);
 
     allDetach();
+    Serial.print("f");
     fadeStream(streamDelay);
     allAttach();
 
